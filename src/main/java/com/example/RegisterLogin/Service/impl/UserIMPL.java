@@ -2,7 +2,10 @@ package com.example.RegisterLogin.Service.impl;
 
 import java.util.Optional;
 
+import com.example.RegisterLogin.response.MessageResponse;
+import com.example.RegisterLogin.response.SignupResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -69,7 +72,27 @@ public class UserIMPL implements UserService {
 	    // If the code reaches here, it implies login failed due to incorrect email or other errors
 	    return new LoginResponse("Login Failed", false);
 	}
-	
+
+	@Override
+	public ResponseEntity<?> addingUserDetails(User user) {
+		if(userRepo.existsByUsername(user.getUsername())) {
+
+
+			return ResponseEntity.badRequest().body(new MessageResponse(("Error: Username is already taken!")));
+		}
+
+		if(userRepo.existsByEmail(user.getEmail())) {
+
+			return ResponseEntity.badRequest().body(new MessageResponse (("Error: Email is already in use!")));
+		}
+
+		// Create new user's account
+		User userDetail = new User(user.getUsername(),user.getEmail(),user.getPassword());
+
+		userRepo.save(userDetail);
+
+		return ResponseEntity.ok().body(new SignupResponse(user.getUsername(),user.getEmail()));
+	}
 
 
 }
