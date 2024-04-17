@@ -11,7 +11,7 @@ public class RegisterLoginApplication {
 		SpringApplication.run(RegisterLoginApplication.class, args);
 
 
-		System.out.println("Running");
+		System.out.println("Running success");
 
 	}
 
