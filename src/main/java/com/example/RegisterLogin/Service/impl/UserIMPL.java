@@ -6,7 +6,6 @@ import com.example.RegisterLogin.response.MessageResponse;
 import com.example.RegisterLogin.response.SignupResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.RegisterLogin.Dto.UserDTO;
