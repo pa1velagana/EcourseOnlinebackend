@@ -12,7 +12,8 @@ public class ECourseOnilneApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(ECourseOnilneApplication.class, args);
-		System.out.println("Running Succesfully");
+		System.out.println("Running Successfully");
+
 	}
 
 	@Bean

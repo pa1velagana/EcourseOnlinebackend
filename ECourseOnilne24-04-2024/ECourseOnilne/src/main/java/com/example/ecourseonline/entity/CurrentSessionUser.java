@@ -2,7 +2,11 @@ package com.example.ecourseonline.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity
 public class CurrentSessionUser {
 
@@ -11,31 +15,7 @@ public class CurrentSessionUser {
 	private int userId;
 	private String uuId;
 
-	public String getUserEmail() {
-		return userEmail;
-	}
-
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public String getUuId() {
-		return uuId;
-	}
-
-	public void setUuId(String uuId) {
-		this.uuId = uuId;
-	}
-
-	public CurrentSessionUser(String userEmail, int userId, String uuId) {
+    public CurrentSessionUser(String userEmail, int userId, String uuId) {
 		super();
 		this.userEmail = userEmail;
 		this.userId = userId;

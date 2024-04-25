@@ -21,4 +21,5 @@ public interface UserService {
 	public UserDetailsResponse updateUserDetails(String emailid, MyUser myuser);
 
 
+	MyUser getUserByEmail(String emailId);
 }
